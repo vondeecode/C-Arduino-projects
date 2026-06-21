@@ -1,0 +1,32 @@
+int startValue = 5;
+int ledPin = 13;
+
+void flashLed(int times){
+    /*A for loop that blinks a number of times 
+     corresponding to the startValue*/
+    for(int i=0;i<times;i++){
+      digitalWrite(ledPin,HIGH);
+      delay(1000);
+      digitalWrite(ledPin,LOW);
+      delay(1000);
+    }
+  }
+
+
+void setup() {
+  // put your setup code here, to run once:
+ Serial.begin(9600);
+ pinMode(ledPin,OUTPUT);
+  while (startValue > 0) {
+    Serial.print("startValue is :");
+    Serial.println(startValue);
+    delay(1000);
+    flashLed(startValue--);
+  }
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
